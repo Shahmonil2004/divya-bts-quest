@@ -1,7 +1,6 @@
 // pages/index.jsx
-import Game from './game'
-import '../styles/globals.css'  // if you need your global styles
+import Game from './game';
 
 export default function Home() {
-  return <Game />
+  return <Game />;
 }
