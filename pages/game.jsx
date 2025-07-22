@@ -48,6 +48,7 @@ export default function Game() {
         ctx.drawImage(bg, 0, 0, canvas.width, canvas.height)
 
         const drawText = (txt, y, size = 36, color = 'white') => {
+          
           ctx.fillStyle = color
           ctx.font      = `${size}px Arial`
           ctx.textAlign = 'center'
@@ -242,38 +243,41 @@ export default function Game() {
 
       {/* Act 5: Final */}
       {stage === 5 && (
+  <div className="relative w-full h-full">
+    {/* 1. Full-screen background */}
+    <div
+      className="absolute inset-0 bg-cover bg-center"
+      style={{ backgroundImage: "url('/assets/btsgroup.jpg')" }}
+    />
+
+    {/* 2. Semi-overlay for readability */}
+    <div className="absolute inset-0 bg-black/30" />
+
+    {/* 3. Your Act 5 content on top */}
+    <div className="relative z-10 flex flex-col items-center justify-center p-4 text-white space-y-4 h-full text-center">
+      {!showPart2 ? (
         <>
-          {/* Full-screen background image */}
-          <img
-            src="/assets/btsgroup.jpg"
-            alt="BTS Group"
-            className="fixed inset-0 w-full h-full object-cover"
-          />
-          {/* Overlay UI */}
-          <div className="fixed inset-0 flex flex-col items-center justify-center p-4 bg-black bg-opacity-30 text-center space-y-4">
-            {!showPart2 ? (
-              <>
-                <h1 className="text-3xl font-semibold">Hope you enjoyed Part 1!</h1>
-                <p>Click YES if you’d like to unlock Part 2.</p>
-                <button
-                  onClick={() => setShowPart2(true)}
-                  className="px-6 py-2 bg-pink-600 rounded-full text-white"
-                >
-                  YES
-                </button>
-              </>
-            ) : (
-              <>
-                <h1 className="text-3xl font-semibold">Wanna experience Part 2?</h1>
-                <p>It begins the moment you reach Jaipur. 🌇</p>
-              </>
-            )}
-            <p className="italic text-gray-100 mt-6">
-              From all 7 of us — Happy Birthday, Divya! 💜
-            </p>
-          </div>
+          <h1 className="text-3xl font-semibold">Hope you enjoyed Part 1!</h1>
+          <p>Click YES if you’d like to unlock Part 2.</p>
+          <button
+            onClick={() => setShowPart2(true)}
+            className="px-6 py-2 bg-pink-600 rounded-full text-white"
+          >
+            YES
+          </button>
+        </>
+      ) : (
+        <>
+          <h1 className="text-3xl font-semibold">Wanna experience Part 2?</h1>
+          <p>It begins the moment you reach Jaipur. 🌇</p>
         </>
       )}
+      <p className="italic text-gray-200 mt-6">
+        From all 7 of us — Happy Birthday, Divya! 💜
+      </p>
+    </div>
+  </div>
+)}
 
     </div>
   )
