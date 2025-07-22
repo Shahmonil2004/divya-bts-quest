@@ -247,7 +247,7 @@ export default function Game() {
     {/* 1. Full-screen background */}
     <div
       className="absolute inset-0 bg-cover bg-center"
-      style={{ backgroundImage: "url('/assets/btsgroup.jpg')" }}
+      style={{ backgroundImage: "url('/assets/btsgroup.png')" }}
     />
 
     {/* 2. Semi-overlay for readability */}
